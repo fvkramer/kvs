@@ -1,21 +1,27 @@
+use std::collections::HashMap;
+
 #[allow(non_snake_case)]
-pub struct KvStore {}
+pub struct KvStore {
+    map: HashMap<String, String>
+}
 
 
 impl KvStore {
     pub fn new() -> KvStore {
-        KvStore {}
+        KvStore { 
+            map: HashMap::new(),
+        }
     }
 
-    pub fn get(&self, _key: String) -> Option<String> {
-        panic!();
+    pub fn get(&self, key: String) -> Option<String> {
+        self.map.get(&key).cloned()
     }
 
-    pub fn set(&self, _key: String, _value: String) {
-        panic!();
+    pub fn set(&mut self, key: String, value: String) {
+        self.map.insert(key, value);
     }
 
-    pub fn remove(&self, _key: String) {
-        panic!();
+    pub fn remove(&mut self, key: String) {
+        self.map.remove(&key);
     }
 }
