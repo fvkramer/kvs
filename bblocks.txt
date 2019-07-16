@@ -1,0 +1,18 @@
+Log Structured Storage
+    - space for objects stored + indexing data
+    - db engines
+
+    structure:
+        - log: append-only sequence of data entries ( when writing new data, instead of finding
+            location, just append to end of log ( metadata indexing appended same way ))
+        - [ log block ][ index block ]  [ pointer to root node ]
+        - split db in chuncks, when no index node pointing to a chunk, that chunk is removed
+        - old db systems use complex lock system for transactional consistency
+            - MVCC ( Multiversion Concurrency Control )
+                - since existing data not modified in log-based storage system, read is done from
+                  root index node
+            - Optimistic Concurrency
+                - look at the index and compare address pointer. if same address, no write occurred
+                  if different address, transaction occurred. roll back and start from read phase
+
+Design and Implementation of a Log-Structured File system
