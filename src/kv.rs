@@ -1,7 +1,5 @@
 use std::collections::HashMap;
 
-pub struct Result {}
-
 #[allow(non_snake_case)]
 pub struct KvStore {
     map: HashMap<String, String>
