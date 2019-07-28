@@ -1,26 +1,37 @@
 use std::collections::HashMap;
+use std::path::{Path, PathBuf};
+
+
+use crate::Result;
 
 #[allow(non_snake_case)]
 pub struct KvStore {
+    path: PathBuf,
     map: HashMap<String, String>
 }
 
+
 impl KvStore {
-    pub fn new() -> KvStore {
-        KvStore {
-            map: HashMap::new(),
-        }
+    pub fn open(_path: &Path) -> Result<KvStore> {
+        unimplemented!();
     }
 
-    pub fn get(&self, key: String) -> Option<String> {
-        self.map.get(&key).cloned()
+    pub fn new() -> KvStore {
+        unimplemented!();
+    }
+
+    pub fn get(&self, key: String) {
+        unimplemented!();
+        // self.map.get(&key).cloned()
     }
 
     pub fn set(&mut self, key: String, value: String) {
-        self.map.insert(key, value);
+        unimplemented!();
+        // self.map.insert(key, value);
     }
 
     pub fn remove(&mut self, key: String) {
-        self.map.remove(&key);
+        unimplemented!();
+        // self.map.remove(&key);
     }
 }
