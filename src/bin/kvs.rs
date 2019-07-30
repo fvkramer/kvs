@@ -1,5 +1,5 @@
 extern crate clap;
-use clap::{Arg, App, SubCommand}; 
+use clap::{Arg, App, SubCommand};
 use std::process::exit;
 
 #[allow(unused_imports)]
@@ -29,8 +29,9 @@ fn main() {
             exit(1);
         }
         ("set", Some(set_matches)) => {
-            eprintln!("unimplemented");
-            exit(1);
+            unimplemented!();
+            // eprintln!("unimplemented");
+            // exit(1);
         }
         ("rm", Some(rm_matches)) => {
             eprintln!("unimplemented");
