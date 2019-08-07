@@ -1,9 +1,10 @@
 extern crate clap;
+use kvs::{Result, KvsError};
 use clap::{Arg, App, SubCommand};
 use std::process::exit;
 
 #[allow(unused_imports)]
-fn main() {
+fn main() -> Result<()> {
     let matches = App::new("kvs rust storage")
                         .version(env!("CARGO_PKG_VERSION"))
                         .author(env!("CARGO_PKG_AUTHORS"))
