@@ -1,21 +1,21 @@
-use crate::error::KvsError;
-// use std::collections::HashMap;
+use std::collections::HashMap;
 use std::path::{Path, PathBuf};
 
+use serde::{Deserialize, Serialize};
 
-use crate::Result;
+use crate::{KvsError, Result};
 
 #[allow(non_snake_case)]
 pub struct KvStore {
-    // path: &Path,
-    // map: HashMap<String, String>
+    path: PathBuf,
 }
 
 
 impl KvStore {
-    pub fn open(path: &Path) -> Result<KvStore> {
+    pub fn open(path: impl Into<PathBuf>) -> Result<KvStore> {
+        let path = path.into();
         Ok(KvStore {
-            // path,
+            path,
         })
     }
 
@@ -29,7 +29,7 @@ impl KvStore {
     }
 
     pub fn set(&mut self, key: String, value: String) -> Result<()> {
-        unimplemented!();
+        Ok(())
         // self.map.insert(key, value);
     }
 
